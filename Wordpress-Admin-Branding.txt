@@ -1,0 +1,39 @@
+/*// /// /// /// /// ///
+/// /// /// /// /// ///
+/// WSME STUFF
+*/
+
+// CUSTOM ADMIN LOGIN HEADER LOGO
+function my_custom_login_logo(){echo '<style  type="text/css">
+h1 a { background-image:url("http://YOURSITE.COM/EXT/logo.png")!important; }
+.login #nav a, .login #backtoblog a {color:#F60!important;}
+.wp-core-ui .button-primary, .wp-core-ui .button-primary:hover {
+background-color: #ff0066;
+background-image: -webkit-gradient(linear,left top,left bottom,from(#b70049),to(#ff0066));
+background-image: -webkit-linear-gradient(top,#b70049,#ff0066);
+background-image: -moz-linear-gradient(top,#b70049,#ff0066);
+background-image: -ms-linear-gradient(top,#b70049,#ff0066);
+background-image: -o-linear-gradient(top,#b70049,#ff0066);
+background-image: linear-gradient(to bottom,#ff0066,#ff0066);
+border-color: #ff0066;
+border-bottom-color: #ff0066;
+-webkit-box-shadow: inset 0 1px 0 rgba(230, 160, 120, 0.5);
+box-shadow: inset 0 1px 0 rgba(230, 155, 120, 0.5);}
+.wp-core-ui .button-primary:hover {color:#512100;}
+</style>';}
+add_action('login_head',  'my_custom_login_logo');
+function wpc_url_login(){return "http://emilyfox.co.nz/";}
+add_filter('login_headerurl', 'wpc_url_login');
+function remove_footer_admin () 
+{echo '<span id="footer-thankyou">Developed by <a href="http://emilyfox.co.nz" target="_blank">Emily Fox</a></span>';}
+add_filter('admin_footer_text', 'remove_footer_admin');
+
+
+add_action('admin_head', 'my_custom_logo');
+function my_custom_logo() {
+echo '
+<style type="text/css">
+#wp-admin-bar-wp-logo .ab-icon { background: url("http://emilyfox.co.nz/EXT/logo.png") scroll no-repeat center center transparent!important; }
+</style>
+';
+}
